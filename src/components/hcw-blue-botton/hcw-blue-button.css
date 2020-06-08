@@ -1,0 +1,31 @@
+button {
+    width: 45vw;
+    height: 6.5vh;
+    border-radius: 23px;
+    background: linear-gradient(#5c91f9 0%, #0065ff 100%);
+    box-shadow: 0px 3px 10px rgba(83, 138, 247, 0.24);
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: none;
+    margin: 10px 0;
+}
+
+button:hover,
+button:focus {
+    outline: none;
+    transform: scale(1.1);
+    transition: all 0.3s;
+}
+
+:host([left]) button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    float: left;
+}
+
+:host([right]) button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    float: right;
+}

@@ -6,7 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface HcwBlueButton {
+    }
     interface HcwCama {
+    }
+    interface HcwMenu {
     }
     interface UcSideDrawer {
         "open": boolean;
@@ -14,11 +18,23 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLHcwBlueButtonElement extends Components.HcwBlueButton, HTMLStencilElement {
+    }
+    var HTMLHcwBlueButtonElement: {
+        prototype: HTMLHcwBlueButtonElement;
+        new (): HTMLHcwBlueButtonElement;
+    };
     interface HTMLHcwCamaElement extends Components.HcwCama, HTMLStencilElement {
     }
     var HTMLHcwCamaElement: {
         prototype: HTMLHcwCamaElement;
         new (): HTMLHcwCamaElement;
+    };
+    interface HTMLHcwMenuElement extends Components.HcwMenu, HTMLStencilElement {
+    }
+    var HTMLHcwMenuElement: {
+        prototype: HTMLHcwMenuElement;
+        new (): HTMLHcwMenuElement;
     };
     interface HTMLUcSideDrawerElement extends Components.UcSideDrawer, HTMLStencilElement {
     }
@@ -27,19 +43,27 @@ declare global {
         new (): HTMLUcSideDrawerElement;
     };
     interface HTMLElementTagNameMap {
+        "hcw-blue-button": HTMLHcwBlueButtonElement;
         "hcw-cama": HTMLHcwCamaElement;
+        "hcw-menu": HTMLHcwMenuElement;
         "uc-side-drawer": HTMLUcSideDrawerElement;
     }
 }
 declare namespace LocalJSX {
+    interface HcwBlueButton {
+    }
     interface HcwCama {
+    }
+    interface HcwMenu {
     }
     interface UcSideDrawer {
         "open"?: boolean;
         "title"?: string;
     }
     interface IntrinsicElements {
+        "hcw-blue-button": HcwBlueButton;
         "hcw-cama": HcwCama;
+        "hcw-menu": HcwMenu;
         "uc-side-drawer": UcSideDrawer;
     }
 }
@@ -47,7 +71,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "hcw-blue-button": LocalJSX.HcwBlueButton & JSXBase.HTMLAttributes<HTMLHcwBlueButtonElement>;
             "hcw-cama": LocalJSX.HcwCama & JSXBase.HTMLAttributes<HTMLHcwCamaElement>;
+            "hcw-menu": LocalJSX.HcwMenu & JSXBase.HTMLAttributes<HTMLHcwMenuElement>;
             "uc-side-drawer": LocalJSX.UcSideDrawer & JSXBase.HTMLAttributes<HTMLUcSideDrawerElement>;
         }
     }

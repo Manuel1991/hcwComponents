@@ -14,18 +14,69 @@
 
     <style>
       * {
-        font-family: 'Roboto';
+        /* font-family: 'Roboto'; */
       }
 
       body {
         background-color: #F9F8FB;
         text-align: center;
-        padding-top: 10rem;
+        padding-top: 5rem;
       }
+
+      .hidde {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+}
+
+.panel-camas {
+  position: absolute;
+    width: 100%;
+    height: 55%;
+    overflow: scroll;
+    padding-bottom: 10px;
+}
+
+.container-botones {
+  background-color: #F9F8FB;
+  width: 100%;
+    height: 35%;
+    position: absolute;
+    bottom: 0;
+}
     </style>
 
+<div class="inicio">
+  <div class="panel-camas">
     <hcw-cama></hcw-cama>
     <hcw-cama></hcw-cama>
     <hcw-cama></hcw-cama>
+  </div>
+  <div class="container-botones">
+    <hcw-blue-button left>Informe de Internados</hcw-blue-button>
+    <hcw-blue-button right>Stock</hcw-blue-button>
+    <hcw-blue-button left>Informe de Internados</hcw-blue-button>
+    <hcw-blue-button right>Stock</hcw-blue-button>
+  </div>
+</div>
+    <hcw-menu></hcw-menu>
+
+    <script>
+      const inicio = document.querySelector('.inicio')
+      const cama = document.querySelectorAll('hcw-cama')
+
+      for (let i = 0; i < cama.length; i++) {
+        cama[i].addEventListener('click', event => {
+          inicio.classList.add('hidde')
+        setTimeout(function(){inicio.remove()}, 1000);
+      })
+        
+      }
+      
+
+
+
+    </script>
   </body>
 </html>

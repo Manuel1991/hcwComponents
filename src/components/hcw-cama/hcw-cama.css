@@ -5,6 +5,8 @@ h1,h2,h3,h4,h5,h6,p{
 
 :host {
     position: relative;
+    font-family: sans-serif;
+    z-index: -10;
 }
 
 .piso {
@@ -13,7 +15,6 @@ h1,h2,h3,h4,h5,h6,p{
     text-align: center;
     color: #fff;
     padding: 10px 0.5rem;
-    font-family: inherit;
     font-size: 1.5rem;
     border-radius: 40px;
     position: absolute;
@@ -32,15 +33,17 @@ h1,h2,h3,h4,h5,h6,p{
     padding: 20px;
     border-radius: 40px;
     margin: 0 auto;
-    height: 166px;
+    height: 140px;
     position: relative;
     cursor: pointer;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
     margin-top: 2.5rem;
+    margin-bottom: 15px;
 }
 
 
-.container:active {
+.container:active,
+.container:focus {
     transform: scale(1.1);
     transition: all 0.3s;
 }
@@ -48,7 +51,6 @@ h1,h2,h3,h4,h5,h6,p{
 .head h2 {
     margin-left: 11%;
     font-size: 1.8rem;
-    font-family: inherit;
     color: #3D3D3D;
     margin-top: 8px;
 }
@@ -80,26 +82,29 @@ h1,h2,h3,h4,h5,h6,p{
 @media (max-width: 460px) {
     .container {
         width: 18rem;
-        height: 200px;
+        height: 150px;
     }
 
     .piso {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        padding: 5px 5px;
+        top: -10px;
     }
 
     .head h2 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         margin-left: 0;
         margin-bottom: 10px;
     }
 
     .container .body .data {
         margin-top: 0;
+        font-size: 1rem;
     }
 
     .container .body .cama {
         grid-area: cama;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .container .body .ingreso {
