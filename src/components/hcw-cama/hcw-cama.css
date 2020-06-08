@@ -1,0 +1,127 @@
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+}
+
+
+:host {
+    position: relative;
+}
+
+.piso {
+    background-color: #4586FA;
+    width: 8rem;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0.5rem;
+    font-family: inherit;
+    font-size: 1.5rem;
+    border-radius: 40px;
+    position: absolute;
+    top: -30px;
+    left: 0;
+}
+
+.piso h3 {
+    margin: 0;
+}
+
+
+.container {
+    background-color: #fff;
+    width: 85%;
+    padding: 20px;
+    border-radius: 40px;
+    margin: 0 auto;
+    height: 166px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    margin-top: 2.5rem;
+}
+
+
+.container:active {
+    transform: scale(1.1);
+    transition: all 0.3s;
+}
+
+.head h2 {
+    margin-left: 11%;
+    font-size: 1.8rem;
+    font-family: inherit;
+    color: #3D3D3D;
+    margin-top: 8px;
+}
+
+.container .body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.container .body .cama {
+    text-align: left;
+    font-weight: bolder;
+    font-size: 1.7rem;
+    color: #3D3D3D;
+}
+
+
+.container .body .data {
+    text-align: left;
+    margin-top: 20%;
+    font-size: 1.3rem;
+    color: #3D3D3D;
+}
+
+
+
+
+
+@media (max-width: 460px) {
+    .container {
+        width: 18rem;
+        height: 200px;
+    }
+
+    .piso {
+        font-size: 1.2rem;
+    }
+
+    .head h2 {
+        font-size: 1.6rem;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .container .body .data {
+        margin-top: 0;
+    }
+
+    .container .body .cama {
+        grid-area: cama;
+        font-size: 1.4rem;
+    }
+
+    .container .body .ingreso {
+        grid-area: ingreso;
+    }
+    
+    .container .body .edad {
+        grid-area: edad;
+    }
+    
+    .container .body .dni {
+        grid-area: dni;
+    }
+
+    .container .body {
+        /* grid-template-columns: none; */
+        grid-template-areas: "cama edad"
+                            "ingreso dni";
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 60% 40%;
+        padding-left: 36px;
+        margin-left: 35px;
+        margin: 0 auto;
+    }
+}
