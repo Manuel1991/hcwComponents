@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+p{
+    margin: 0;
+    line-height: 20px;
+}
+
+:host{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#background {
+    background:linear-gradient(180deg, rgba(92,145,249,1) 0%, rgba(0,101,255,1) 100%);
+    width: 100vw;
+    height: 85vh;
+    padding-top: 3rem;
+    font-family: 'Roboto';
+    position: relative;
+    transition: 0.3s;
+    overscroll-behavior: none
+}
+
+.notificacion {
+    /* margin: 1rem 0.5rem; */
+    color: #fff;
+    display: grid;
+    grid-template-columns: 15% 30% 45% 10%;
+    gap: 5px;
+    padding: 0 .5rem;
+    border-bottom: 1px solid #fff;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.item {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0 0.5rem;
+}
+
+.date {
+    text-align: center;
+}
+
+.room {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.hora {
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.fecha {
+    font-size: 0.9rem;
+}
+
+#area-notificaciones {
+    height: 90%;
+    overflow: scroll;
+}
+
+#arrow {
+    position: absolute;
+    left: 48%;
+    bottom: 3%;
+
+}
+
+#arrow svg { 
+    fill: #fff;
+    cursor: pointer;
+} 
+
+:host([opened]) #area-notificaciones {
+    overflow: hidden;
+}
+:host([opened]) #background {
+    height: 0vh;
+    transition: 0.3s;
+}
+
+:host([opened]) #area-notificaciones {
+    height: 50%;
+    transition: 0.3s;
+}
+
+:host([opened]) #arrow svg {
+    transform: rotate(180deg);
+    transition: 0.3s;
+}
+
+:host([opened]) #arrow {
+    bottom: 10%;
+}
+
+
+.arrow {
+    position: fixed;
+}
+
+
+.card {
+
+}

@@ -1,95 +1,85 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <script type="module" src="/build/mycomponent.esm.js"></script>
-  <script nomodule src="/build/mycomponent.js"></script>
-  <title>Stencil Component Starter</title>
-</head>
+<style>
+  * {
+    /* font-family: 'Roboto'; */
+    overscroll-behavior: none
+  }
 
-<body>
+  body {
+    background: #0868fe;
+    text-align: center;
+    padding-top: 5rem;
+    margin: 0;
+  }
 
-  <style>
-    * {
-      /* font-family: 'Roboto'; */
-    }
 
-    body {
-      background-color: #F9F8FB;
-      text-align: center;
-      padding-top: 5rem;
-    }
+  body {
+    background-color: #F9F8FB;
+    text-align: center;
+    padding-top: 5rem;
+  }
 
-    .hidde {
-      visibility: hidden;
-      opacity: 0;
-      -webkit-transition: visibility 0s linear 0.33s, opacity 0.33s linear;
-      transition: visibility 0s linear 0.33s, opacity 0.33s linear;
-    }
+  .container-botones {
+    background-color: #F9F8FB;
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    bottom: 0;
+  }
 
-    .panel-camas {
-      position: absolute;
-      width: 100%;
-      height: 55%;
-      overflow: scroll;
-      padding-bottom: 10px;
-    }
-
-    .container-botones {
-      background-color: #F9F8FB;
-      width: 100%;
-      height: 35%;
-      position: absolute;
-      bottom: 0;
-    }
-  </style>
-
-  <div class="inicio">
-    <div class="panel-camas">
-      <hcw-cama></hcw-cama>
-    </div>
-    <div class="container-botones">
-      <hcw-blue-button left>Informe de Internados</hcw-blue-button>
-      <hcw-blue-button right>Stock</hcw-blue-button>
-      <hcw-blue-button left>Informe de Internados</hcw-blue-button>
-      <hcw-blue-button right>Stock</hcw-blue-button>
-    </div>
+  hcw-blue-button {
+    margin-top: 2rem;
+  }
+</style>
+<enferm-notificaciones opened></enferm-notificaciones>
+<!-- <div class="inicio">
+  <div class="panel-camas">
+    <hcw-cama></hcw-cama>
+    <hcw-cama></hcw-cama>
+    <hcw-cama></hcw-cama>
   </div>
+  <div class="container-botones">
+    <hcw-blue-button left>Informe de Internados</hcw-blue-button>
+    <hcw-blue-button right>Stock</hcw-blue-button>
+  </div>
+</div> -->
+<hcw-informe-internados></hcw-informe-internados>
+<hcw-menu></hcw-menu>
 
-  <hcw-menu></hcw-menu>
+<hcw-menu></hcw-menu>
 
-  <script>
-    const app = (() => {
-      return {
-        init() {
-          var camas = document.querySelector("hcw-cama");
-          camas.init({ IdInstitucion: 93 });
+<script>
+  const app = (() => {
+    return {
+      init() {
+        var camas = document.querySelector("hcw-cama");
+        camas.init({ IdInstitucion: 93 });
 
-          camas.addEventListener("load", () => {
-            console.log("camas: load");
-          });
-          camas.addEventListener("change", e => {
-            debugger;
-            console.dir(e);
+        camas.addEventListener("load", () => {
+          console.log("camas: load");
+        });
+        camas.addEventListener("change", e => {
+          let cama = e.detail;
+          console.dir(cama);
+        });
 
-          });
-          /**
-              const inicio = document.querySelector('.inicio')
-                    for (let i = 0; i < cama.length; i++) {
-                      cama[i].addEventListener('click', event => {
-                        inicio.classList.add('hidde')
-                        setTimeout(function () { inicio.remove() }, 1000);
-                      })
-                    }
-                    */
-        }
+        /**
+            const inicio = document.querySelector('.inicio')
+                  for (let i = 0; i < cama.length; i++) {
+                    cama[i].addEventListener('click', event => {
+                      inicio.classList.add('hidde')
+                      setTimeout(function () { inicio.remove() }, 1000);
+                    })
+                  }
+                  */
       }
-    })();
+    }
+  })();
 
-    document.addEventListener("DOMContentLoaded", app.init);
-  </script>
+  document.addEventListener("DOMContentLoaded", app.init);
+</script>
 </body>
 
 </html>
