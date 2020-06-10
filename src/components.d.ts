@@ -5,10 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Cama } from "./components/hcw-cama/cama";
 export namespace Components {
     interface HcwBlueButton {
     }
     interface HcwCama {
+        "camas": Array<Cama>;
+        "init": ({ IdPrestador, IdInstitucion }: { IdPrestador?: number; IdInstitucion?: number; }) => Promise<void>;
+        "refresh": ({ IdPrestador, IdInstitucion }: { IdPrestador?: number; IdInstitucion?: number; }) => Promise<void>;
     }
     interface HcwMenu {
     }
@@ -53,6 +57,10 @@ declare namespace LocalJSX {
     interface HcwBlueButton {
     }
     interface HcwCama {
+        "camas"?: Array<Cama>;
+        "onChange"?: (event: CustomEvent<object>) => void;
+        "onError"?: (event: CustomEvent<string>) => void;
+        "onLoad"?: (event: CustomEvent<object>) => void;
     }
     interface HcwMenu {
     }
