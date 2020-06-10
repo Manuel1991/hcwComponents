@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-<style>
-  * {
-    /* font-family: 'Roboto'; */
-    overscroll-behavior: none
-  }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <script type="module" src="/build/mycomponent.esm.js" data-stencil></script>
+  <script nomodule="" src="/build/mycomponent.js" data-stencil></script>
+  <title>Stencil Component Starter</title>
 
-  body {
-    background: #0868fe;
-    text-align: center;
-    padding-top: 5rem;
-    margin: 0;
-  }
+  <style>
+    * {
+      /* font-family: 'Roboto'; */
+      overscroll-behavior: none
+    }
+
+    body {
+      background: #0868fe;
+      text-align: center;
+      padding-top: 5rem;
+      margin: 0;
+    }
 
 
-  body {
-    background-color: #F9F8FB;
-    text-align: center;
-    padding-top: 5rem;
-  }
+    body {
+      background-color: #F9F8FB;
+      text-align: center;
+      padding-top: 5rem;
+    }
 
-  .container-botones {
-    background-color: #F9F8FB;
-    width: 100%;
-    height: 30%;
-    position: absolute;
-    bottom: 0;
-  }
+    .container-botones {
+      background-color: #F9F8FB;
+      width: 100%;
+      height: 30%;
+      position: absolute;
+      bottom: 0;
+    }
 
-  hcw-blue-button {
-    margin-top: 2rem;
-  }
-</style>
-<enferm-notificaciones opened></enferm-notificaciones>
-<!-- <div class="inicio">
+    hcw-blue-button {
+      margin-top: 2rem;
+    }
+  </style>
+
+</head>
+
+<body>
+  <hcw-cama></hcw-cama>
+  <enferm-notificaciones opened></enferm-notificaciones>
+  <!-- <div class="inicio">
   <div class="panel-camas">
     <hcw-cama></hcw-cama>
     <hcw-cama></hcw-cama>
@@ -45,41 +57,43 @@
     <hcw-blue-button right>Stock</hcw-blue-button>
   </div>
 </div> -->
-<hcw-informe-internados></hcw-informe-internados>
-<hcw-menu></hcw-menu>
+  <hcw-informe-internados></hcw-informe-internados>
 
-<hcw-menu></hcw-menu>
+  <hcw-menu></hcw-menu>
+  <hcw-menu></hcw-menu>
 
-<script>
-  const app = (() => {
-    return {
-      init() {
-        var camas = document.querySelector("hcw-cama");
-        camas.init({ IdInstitucion: 93 });
+  <script>
+    const app = (() => {
+      return {
+        init() {
+          var camas = document.querySelector("hcw-cama");
+          camas.init({ IdInstitucion: 93 });
 
-        camas.addEventListener("load", () => {
-          console.log("camas: load");
-        });
-        camas.addEventListener("change", e => {
-          let cama = e.detail;
-          console.dir(cama);
-        });
-
-        /**
-            const inicio = document.querySelector('.inicio')
-                  for (let i = 0; i < cama.length; i++) {
-                    cama[i].addEventListener('click', event => {
-                      inicio.classList.add('hidde')
-                      setTimeout(function () { inicio.remove() }, 1000);
-                    })
-                  }
-                  */
+          camas.addEventListener("load", () => {
+            console.log("camas: load");
+          });
+          camas.addEventListener("change", e => {
+            let cama = e.detail;
+            console.dir(cama);
+          });
+          camas.addEventListener("error", err => {
+            console.error("cama:", err);
+          });
+          /**
+              const inicio = document.querySelector('.inicio')
+                    for (let i = 0; i < cama.length; i++) {
+                      cama[i].addEventListener('click', event => {
+                        inicio.classList.add('hidde')
+                        setTimeout(function () { inicio.remove() }, 1000);
+                      })
+                    }
+                    */
+        }
       }
-    }
-  })();
+    })();
 
-  document.addEventListener("DOMContentLoaded", app.init);
-</script>
+    document.addEventListener("DOMContentLoaded", app.init);
+  </script>
 </body>
 
 </html>
